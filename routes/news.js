@@ -50,7 +50,8 @@ router.get('/', function (req, res) {
                 text: resultAnswer.text,
                 category: resultAnswer.category,
                 sources: resultAnswer.sources,
-                author: resultAnswer.author
+                author: resultAnswer.author,
+                shortcut: resultAnswer.shortcut
             }
         );
     }
