@@ -14,45 +14,37 @@ html
                             span.icon-bar
                             span.icon-bar
                             span.icon-bar
-                        a.navbar-brand(href='#') Project name
+                        a.navbar-brand(href='#') Главная страница
                     .navbar-collapse.collapse
                         form.navbar-form.navbar-right(role='form')
                             .form-group
-                                input.form-control(type='text', placeholder='Email')
-                            button.btn.btn-success(type='submit') Sign in
+                            a.btn.btn-primary(href='/logout',type='submit') Выйти
                     // /.navbar-collapse
             // Main jumbotron for a primary marketing message or call to action
             .jumbotron
                 .container
-                    h1 Hello, world!
+                    h1 Вас приветсвует новостной сайт!
                     p
-                        | This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.
+                        | Данный сайт размещает всебе новостные статьи на различные тематики. Надеемся, что вам понравится находится здесь
                     p
-                        a.btn.btn-primary.btn-lg(role='button') Learn more »
+                        a.btn.btn-primary.btn-lg(role='button') Больше информации »
             .container
                 // Example row of columns
                 .row
-                    .col-md-4
-                        h2 Heading
-                        p
-                            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                        p
-                            a.btn.btn-default(href='#', role='button') View details »
-                    .col-md-4
-                        h2 Heading
-                        p
-                            | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                        p
-                            a.btn.btn-default(href='#', role='button') View details »
-                    .col-md-4
-                        h2 Heading
-                        p
-                            | Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                        p
-                            a.btn.btn-default(href='#', role='button') View details »
+                    - var newsTitles = ["ШОК","Заработок в интернете","Увеличение члена!!!"]
+                    - var newsPages = ["shok","money","pennis"]
+                    - var newsShortcuts = ["Шок, путин был женщиной, а обамка-обезьянка","Школьник в интернете заработал своим миллионы в 18 лет, а чего добился ты?","Только сейчас, закажи УВЕЛИЧИТЕЛЬПЕНИСА228 и сходи нахуй"]
+                    each newsTitle, i in newsTitles
+                        .col-md-4
+                            h2 #{newsTitle}
+                            p
+                                | #{newsShortcuts[i]}
+                            p
+                                a.btn.btn-default(href='news?='+newsPages[i], role='button') Читать далее »
+
                 hr
                 footer
-                    p © Company 2014
+                    p © BSUIR 2016
 
     script(src="/bower_components/jquery/dist/jquery.min.js")
     script(src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
