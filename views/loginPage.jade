@@ -1,0 +1,85 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/loginPage.css')
+        link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+    body
+        block content
+            .container
+                .row
+                    .col-md-6.col-md-offset-3
+                        .panel.panel-login
+                            .panel-heading
+                                .row
+                                    .col-xs-6
+                                        if isRegistrationError
+                                            a#login-form-link(href='#') Вход
+                                        else
+                                            a#login-form-link.active(href='#') Вход
+                                    .col-xs-6
+                                        if isRegistrationError
+                                            a#register-form-link.active(href='#') Регистрация
+                                        else
+                                            a#register-form-link(href='#') Регистрация
+                                hr
+                            .panel-body
+                                .row
+                                    .col-lg-12
+                                        if isLoginError || isRegistrationError
+                                            .alert.alert-danger
+                                                strong Ошибка!
+                                                |  #{msgText}
+                                        if  isRegSuccess
+                                            .alert.alert-success
+                                                strong Успех!
+                                                |  #{msgText}
+
+
+                                        if isRegistrationError
+                                            form#login-form(action='/jwt/authenticate', method='post', role='form', style='display: none;')
+                                                .form-group
+                                                    input#Login-username.form-control(required="true" type='text', name='username', tabindex='1', placeholder='Имя пользователя', value='')
+                                                .form-group
+                                                    input#Login-password.form-control(required="true" type='password', name='password', tabindex='2', placeholder='Пароль')
+                                                .form-group
+                                                    .row
+                                                        .col-sm-6.col-sm-offset-3
+                                                            input#login-submit.form-control.btn.btn-login(type='submit', name='login-submit', tabindex='4', value='Войти')
+                                        else
+                                            form#login-form(action='/jwt/authenticate', method='post', role='form', style='display: block;')
+                                                .form-group
+                                                    input#Login-username.form-control(required="true" type='text', name='username', tabindex='1', placeholder='Имя пользователя', value='')
+                                                .form-group
+                                                    input#Login-password.form-control(required="true" type='password', name='password', tabindex='2', placeholder='Пароль')
+                                                .form-group
+                                                    .row
+                                                        .col-sm-6.col-sm-offset-3
+                                                            input#login-submit.form-control.btn.btn-login(type='submit', name='login-submit', tabindex='4', value='Войти')
+
+                                        if isRegistrationError
+                                            form#register-form(action='/jwt/registration', method='post', role='form', style='display: block;')
+                                                .form-group
+                                                    input#username.form-control(required="true" type='text', name='username', tabindex='1', placeholder='Имя пользователя', value='')
+                                                .form-group
+                                                    input#password.form-control(required="true" type='password', name='password', tabindex='2', placeholder='Пароль')
+                                                .form-group
+                                                    input#confirm-password.form-control(required="true" type='password', name='confirm-password', tabindex='2', placeholder='Подтвердите пароль')
+                                                .form-group
+                                                    .row
+                                                        .col-sm-6.col-sm-offset-3
+                                                            input#register-submit.form-control.btn.btn-register(type='submit', name='register-submit', tabindex='4', value='Зарегистрироваться')
+                                        else
+                                            form#register-form(action='/jwt/registration', method='post', role='form', style='display: none;')
+                                                .form-group
+                                                    input#username.form-control(required="true" type='text', name='username', tabindex='1', placeholder='Имя пользователя', value='')
+                                                .form-group
+                                                    input#password.form-control(required="true" type='password', name='password', tabindex='2', placeholder='Пароль')
+                                                .form-group
+                                                    input#confirm-password.form-control(required="true" type='password', name='confirm-password', tabindex='2', placeholder='Подтвердите пароль')
+                                                .form-group
+                                                    .row
+                                                        .col-sm-6.col-sm-offset-3
+                                                            input#register-submit.form-control.btn.btn-register(type='submit', name='register-submit', tabindex='4', value='Зарегистрироваться')
+        script(src="/bower_components/jquery/dist/jquery.min.js")
+        script(src="/javascripts/loginPage.js")

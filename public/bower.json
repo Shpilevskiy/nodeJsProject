@@ -1,0 +1,21 @@
+{
+  "name": "nodejslab10",
+  "homepage": "https://github.com/Shpilevskiy/Lab_works",
+  "authors": [
+    "Nick <arioxon@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "requirejs": "^2.3.2"
+  }
+}
