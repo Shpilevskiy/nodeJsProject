@@ -18,19 +18,19 @@ router.get('/', function (req, res) {
     if (newsArticle == rabbitsJson.page) resultAnswer = rabbitsJson;
 
 
-    if (resultAnswer) res.json(resultAnswer);
-    else res.json("Error: error");
-
-    res.render('newsPage', {
-        title: resultAnswer.title,
-        date: resultAnswer.date,
-        rate: resultAnswer.rate,
-        text: resultAnswer.text,
-        category: resultAnswer.category,
-        sources: resultAnswer.sources,
-        author: resultAnswer.author
+    if (resultAnswer) {
+        res.render('newsPage', {
+                title: resultAnswer.title,
+                date: resultAnswer.date,
+                rate: resultAnswer.rate,
+                text: resultAnswer.text,
+                category: resultAnswer.category,
+                sources: resultAnswer.sources,
+                author: resultAnswer.author
+            }
+        );
     }
-    )
+    else res.json("Error: error");
 });
 
 module.exports = router;
