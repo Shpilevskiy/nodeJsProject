@@ -1,5 +1,5 @@
 var customDownload = function () {
-    $("#test").load('/moreinfo');
+    $("#test").append($("#test").load('/moreinfo'));
 };
 $( "#ButMore" ).on("click", function() {
     $("#test").empty();
