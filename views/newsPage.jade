@@ -9,51 +9,50 @@ html
             .blog-masthead
                 .container
                     nav.blog-nav
-                        a.blog-nav-item.active(href='#') Home
-.container
-    .blog-header
-        h1.blog-title #{title}
-        //p.lead.blog-description The official example template of creating a blog with Bootstrap.
-    .row
-        .col-sm-8.blog-main
-            .blog-post
-                p.blog-post-meta
-                    | #{date}
+                        a.blog-nav-item.active(href='http://localhost:3000/main') Главная страница
+            .container
+                .blog-header
+                    h1.blog-title #{title}
+                    //p.lead.blog-description The official example template of creating a blog with Bootstrap.
+                .row
+                    .col-sm-8.blog-main
+                        .blog-post
+                            p.blog-post-meta
+                                | #{date}
+                            p
+                                | Оценка статьи: #{rate}
+                            hr
+                            p
+                                | #{text}
+                            p.blog-post-meta
+                                | Автор: #{author}
+                    .col-sm-3.col-sm-offset-1.blog-sidebar
+                        .sidebar-module.sidebar-module-inset
+                            h4 Краткое описание
+                            p
+                                | #{shortcut}
+                        .sidebar-module
+                            h4 Ссылки на статьи
+                            ol.list-unstyled
+                                li
+                                    a(href='http://localhost:3000/news?article=dogs') Собаки
+                                li
+                                    a(href='http://localhost:3000/news?article=cats') Кошки
+                                li
+                                    a(href='http://localhost:3000/news?article=rabbits') Кролики
+                    .col-sm-8.blog-sidebar
+                        .sidebar-module
+                            p.blog-post-meta
+                                //| Автор: #{author}
+                                h4 Категория: #{category}
+                                h4 Источники:
+                                ol.list-unstyled
+                                    each source in sources
+                                        li
+                                            a(href='#') #{source}
+            .blog-footer
                 p
-                    | Оценка статьи: #{rate}
-                hr
-                p
-                    | #{text}
-                p.blog-post-meta
-                    | Автор: #{author}
-
-        .col-sm-3.col-sm-offset-1.blog-sidebar
-            .sidebar-module.sidebar-module-inset
-                h4 Краткое описание
-                p
-                    | #{shortcut}
-            .sidebar-module
-                h4 Ссылки на статьи
-                ol.list-unstyled
-                    li
-                        a(href='http://localhost:3000/news?article=dogs') Собаки
-                    li
-                        a(href='http://localhost:3000/news?article=cats') Кошки
-                    li
-                        a(href='http://localhost:3000/news?article=rabbits') Кролики
-
-        .col-sm-8.blog-sidebar
-            .sidebar-module
-                p.blog-post-meta
-                    //| Автор: #{author}
-                    h4 Категория: #{category}
-                    h4 Источники:
-                    each source in sources
-                        p.list-unstyled
-                             a(href='#') #{source}
-
-
-
+                    a(href='#') Наверх
 
 
     script(src="/bower_components/jquery/dist/jquery.min.js")
