@@ -10,8 +10,34 @@ html
                 .container
                     nav.blog-nav
                         a.blog-nav-item.active(href='#') Home
+.container
+    .blog-header
+        h1.blog-title #{title}
+        //p.lead.blog-description The official example template of creating a blog with Bootstrap.
+    .row
+        .col-sm-8.blog-main
+            .blog-post
+                p.blog-post-meta
+                    | #{date}
+                p
+                    | Оценка статьи: #{rate}
+                hr
+                p
+                    | #{text}
+                p.blog-post-meta
+                    | Автор: #{author}
+
+        .col-sm-8.blog-sidebar
+            .sidebar-module
+                p.blog-post-meta
+                    //| Автор: #{author}
+                    p
+                        | Категория: #{category}
+                    p Источники:
+                    each source in sources
+                        p.list-unstyled
+                             a(href='#') #{source}
 
 
     script(src="/bower_components/jquery/dist/jquery.min.js")
     script(src="/bower_components/bootstrap/dist/js/bootstrap.min.js")
-    script(src="/javascripts/mainPage.js")
