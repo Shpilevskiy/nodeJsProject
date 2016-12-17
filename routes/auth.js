@@ -56,6 +56,15 @@ router.post('/authenticate', function (req, res) {
     })
 });
 
+router.get('/logout', function (req, res) {
+    var token = req.cookies.auth;
+    if(token) {
+        res.clearCookie("auth");
+    }
+    res.writeHead(302, {'Location': '/'});
+    res.end();
+});
+
 router.get('/removeUsers', function (req, res) {
     UserModel.remove({}, function (err) {
         if (err) console.log(err)
