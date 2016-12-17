@@ -27,16 +27,33 @@ html
                 p.blog-post-meta
                     | Автор: #{author}
 
+        .col-sm-3.col-sm-offset-1.blog-sidebar
+            .sidebar-module.sidebar-module-inset
+                h4 Краткое описание
+                p
+                    | #{shortcut}
+            .sidebar-module
+                h4 Ссылки на статьи
+                ol.list-unstyled
+                    li
+                        a(href='http://localhost:3000/news?article=dogs') Собаки
+                    li
+                        a(href='http://localhost:3000/news?article=cats') Кошки
+                    li
+                        a(href='http://localhost:3000/news?article=rabbits') Кролики
+
         .col-sm-8.blog-sidebar
             .sidebar-module
                 p.blog-post-meta
                     //| Автор: #{author}
-                    p
-                        | Категория: #{category}
-                    p Источники:
+                    h4 Категория: #{category}
+                    h4 Источники:
                     each source in sources
                         p.list-unstyled
                              a(href='#') #{source}
+
+
+
 
 
     script(src="/bower_components/jquery/dist/jquery.min.js")
