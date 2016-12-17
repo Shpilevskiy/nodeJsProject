@@ -23,7 +23,7 @@ html
             // Main jumbotron for a primary marketing message or call to action
             .jumbotron
                 .container
-                    h1 Вас приветсвует новостной сайт!
+                    h1 #{userName}, Вас приветсвует новостной сайт!
                     p
                         | Данный сайт размещает всебе новостные статьи на различные тематики. Надеемся, что вам понравится находится здесь
                     p
@@ -31,9 +31,6 @@ html
             .container
                 // Example row of columns
                 .row
-                    - var newsTitles = ["ШОК","Заработок в интернете","Увеличение члена!!!"]
-                    - var newsPages = ["shok","money","pennis"]
-                    - var newsShortcuts = ["Шок, путин был женщиной, а обамка-обезьянка","Школьник в интернете заработал своим миллионы в 18 лет, а чего добился ты?","Только сейчас, закажи УВЕЛИЧИТЕЛЬПЕНИСА228 и сходи нахуй"]
                     each newsTitle, i in newsTitles
                         .col-md-4
                             h2 #{newsTitle}

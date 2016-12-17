@@ -5,6 +5,10 @@ var config = require('../config');
 
 var router = express.Router();
 
+var dogsJson = require('../json_data/dogs.json'); // get article file
+var catsJson = require('../json_data/cats.json'); // get article file
+var rabbitsJson = require('../json_data/rabbits.json'); // get article file
+
 router.use(function (req, res, next) {
     var token = req.cookies.auth;
 
@@ -33,9 +37,17 @@ router.use(function (req, res, next) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
+    var newsTitles = [dogsJson.title,catsJson.title,rabbitsJson.title];
+    var newsPages = [dogsJson.page,catsJson.page,rabbitsJson.page];
+    var newsShortcuts = [dogsJson.shortcut,catsJson.shortcut,rabbitsJson.shortcut];
+
+
     res.render('main', {
         title: "Главная страница",
-        msg: "hello  " + req.decoded._doc.name
+        userName: req.decoded._doc.name,
+        newsTitles:newsTitles,
+        newsPages:newsPages,
+        newsShortcuts:newsShortcuts
     });
 });
 
