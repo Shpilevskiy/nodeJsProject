@@ -9,6 +9,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./routes/auth');
 var main = require('./routes/main');
+var news = require('./routes/news');
 
 var jwt    = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var config = require('./config'); // get config file
@@ -42,6 +43,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/jwt', auth);
 app.use('/main', main);
+app.use('/news', news);
 
 mongoose.connect(config.database);
 var db = mongoose.connection;
