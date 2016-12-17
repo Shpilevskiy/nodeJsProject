@@ -13,4 +13,30 @@ $(function() {
         $(this).addClass('active');
         e.preventDefault();
     });
+
+});
+
+
+
+$( document ).ready(function() {
+    var inputPasswordField = $("#password");
+    var inputConfirmField = $("#confirm-password");
+    // var registerButton = $("#register-submit");
+
+    inputPasswordField.on('input', function () {
+        var registerButton = document.getElementById("register-submit");
+        if (inputPasswordField.val() === inputConfirmField.val()) {
+            registerButton.removeAttribute("disabled");
+        }
+        else registerButton.setAttribute('disabled','disabled');
+    });
+
+    inputConfirmField.on('input', function () {
+        var registerButton = document.getElementById("register-submit");
+        if (inputPasswordField.val() === inputConfirmField.val()) {
+            registerButton.removeAttribute("disabled");
+        }
+        else registerButton.setAttribute('disabled','disabled');
+    });
+
 });
